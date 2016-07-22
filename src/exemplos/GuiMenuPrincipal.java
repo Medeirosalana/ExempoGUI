@@ -10,6 +10,7 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLista;
+    private JMenuItem miCombos, miAreaTexto, miImagens, miDialogo, miDialogoConfirmacao;
     public GuiMenuPrincipal(){
         inicializarComponentes();
         defenirEventos();
@@ -18,7 +19,7 @@ public class GuiMenuPrincipal extends JFrame {
         setTitle("Menu Principal");
         setBounds(0, 0, 800, 600);
         contentPane = getContentPane();
-        
+        setResizable(false);
         
         mnBarra = new JMenuBar();
         mnArquivo = new JMenu("Arquivo");
@@ -28,6 +29,11 @@ public class GuiMenuPrincipal extends JFrame {
         miCaixaOpcao = new JMenuItem("Caixa de Opção");
         miRadio = new JMenuItem("Botão de Rádio");
         miLista = new JMenuItem("Lista");
+        miCombos = new JMenuItem ("Combos");
+        miAreaTexto = new JMenuItem("Area Texto");
+        miDialogo = new JMenuItem("Caixa de dialogo");
+        miImagens = new JMenuItem("Imagens");
+        miDialogoConfirmacao = new JMenuItem("Dialogo Confirmação");
         mnArquivo.setMnemonic('A');
         mnExemplos.setMnemonic('E');
         
@@ -36,6 +42,11 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miBotao);
         mnExemplos.add(miRadio);
         mnExemplos.add(miLista);
+        mnExemplos.add(miCombos);
+        mnExemplos.add(miDialogo);
+        mnExemplos.add(miAreaTexto);
+        mnExemplos.add(miDialogoConfirmacao);
+        mnExemplos.add(miImagens);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);        
@@ -88,7 +99,57 @@ public class GuiMenuPrincipal extends JFrame {
                 contentPane.validate();
             }
         });
-        
+        miCombos.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiCombo combo = new GuiCombo();
+                contentPane.removeAll();
+                contentPane.add(combo);
+                contentPane.validate();
+            }
+        });
+        miAreaTexto.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiAreaTexto area = new GuiAreaTexto();
+                contentPane.removeAll();
+                contentPane.add(area);
+                contentPane.validate();
+            }
+        });
+        miImagens.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               GuiListasComFotos fotos = new GuiListasComFotos();
+               contentPane.removeAll();
+               contentPane.add(fotos);
+               contentPane.validate();
+                       
+            }
+        });
+        miDialogo.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiDialogoMensagem dialogo = new GuiDialogoMensagem();
+                contentPane.removeAll();
+                contentPane.add(dialogo);
+                contentPane.validate();
+            }
+        });
+        miDialogoConfirmacao.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               GuiDialogoConfirmacao confirmacao = new GuiDialogoConfirmacao();
+               contentPane.removeAll();
+               contentPane.add(confirmacao);
+               contentPane.validate();
+            }
+        });
     }
 
 public static void run(){

@@ -12,9 +12,11 @@ public class GuiRadio extends JPanel {
     private ButtonGroup grupo;
     private JButton btVerificar;
     
+    
     public GuiRadio(){
-    inicializarComponentes();
-    defenirEventos();
+       
+        inicializarComponentes();
+        defenirEventos();
     }
     private void inicializarComponentes(){
         setLayout(null);
@@ -52,4 +54,6 @@ public class GuiRadio extends JPanel {
          }
      });
      }
+
+    
 }

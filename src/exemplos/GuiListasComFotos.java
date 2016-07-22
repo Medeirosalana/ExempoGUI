@@ -22,7 +22,7 @@ public class GuiListasComFotos extends JPanel {
         setLayout(null);
         
         dlm = new DefaultListModel();
-        for(int i = 1; i <= 10; i++){
+        for(int i = 1; i <= 2; i++){
         dlm.addElement("Fotos" + i);        
         }
         lsFotos = new JList(dlm);
