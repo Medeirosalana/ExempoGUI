@@ -10,7 +10,8 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLista;
-    private JMenuItem miCombos, miAreaTexto, miImagens, miDialogo, miDialogoConfirmacao;
+    private JMenuItem miCombos, miAreaTexto, miImagens, miDialogo, miDialogoConfirmacao, miOpcao;
+    private JMenuItem miGrade;
     public GuiMenuPrincipal(){
         inicializarComponentes();
         defenirEventos();
@@ -33,6 +34,8 @@ public class GuiMenuPrincipal extends JFrame {
         miAreaTexto = new JMenuItem("Area Texto");
         miDialogo = new JMenuItem("Caixa de dialogo");
         miImagens = new JMenuItem("Imagens");
+        miOpcao = new JMenuItem("Dialogo Opção");
+        miGrade = new JMenuItem("Grade");
         miDialogoConfirmacao = new JMenuItem("Dialogo Confirmação");
         mnArquivo.setMnemonic('A');
         mnExemplos.setMnemonic('E');
@@ -47,6 +50,8 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miAreaTexto);
         mnExemplos.add(miDialogoConfirmacao);
         mnExemplos.add(miImagens);
+        mnExemplos.add(miOpcao);
+        mnExemplos.add(miGrade);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);        
@@ -148,6 +153,27 @@ public class GuiMenuPrincipal extends JFrame {
                contentPane.removeAll();
                contentPane.add(confirmacao);
                contentPane.validate();
+            }
+           
+        });
+        miOpcao.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiDialogoOpcao opcao = new GuiDialogoOpcao();
+                contentPane.removeAll();
+                contentPane.add(opcao);
+                contentPane.validate();
+            }
+        });
+        miGrade.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiGrade grade = new GuiGrade();
+                contentPane.removeAll();
+                contentPane.add(grade);
+                contentPane.validate();
             }
         });
     }
